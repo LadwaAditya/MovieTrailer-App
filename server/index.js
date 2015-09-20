@@ -23,12 +23,14 @@ app.use(function(req,res,next){
 
 app.use('/hello',function(req,res,next){
 	res.send('Hello World!');
-	next();
+	next(); 
 });
 
 //Connect to MongoDb database
 mongoose.connect('mongodb://localhost/movieTrailerApp');
 mongoose.connection.once('open',function(){
+
+	app.models =require('./models/index');
 	console.log('Listning on port 3000');
 	app.listen(3000);
 });
