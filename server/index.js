@@ -21,10 +21,6 @@ app.use(function(req,res,next){
 });
 
 
-app.use('/hello',function(req,res,next){
-	res.send('Hello World!');
-	next(); 
-});
 
 //Connect to MongoDb database
 mongoose.connect('mongodb://localhost/MovieTrailerApp');

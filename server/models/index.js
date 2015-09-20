@@ -1,3 +1,3 @@
 module.exports = {
-	movie:require('./Movie.js');
+	movie:require('./Movie.js')
 }

@@ -10,6 +10,4 @@ var MovieSchema = new mongoose.Schema({
 		required:true
 	}
 });
-
-
 module.exports = MovieSchema;
