@@ -27,10 +27,17 @@ app.use('/hello',function(req,res,next){
 });
 
 //Connect to MongoDb database
-mongoose.connect('mongodb://localhost/movieTrailerApp');
+mongoose.connect('mongodb://localhost/MovieTrailerApp');
+
 mongoose.connection.once('open',function(){
 
-	app.models =require('./models/index');
+	app.models = require('./models/index');
+
+	//Load the routes
+	var routes = require('./routes');
+	_.each(routes,function(controller,route){
+		app.use(route,controller(app,route));
+	});
 	console.log('Listning on port 3000');
 	app.listen(3000);
 });
